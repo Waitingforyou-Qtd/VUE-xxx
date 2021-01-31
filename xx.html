@@ -9,7 +9,7 @@
 <body>
     <div id="app">
         <p>{{name}}</p>
-        <!-- <p>{{age}}</p> -->
+        <p>{{age}}</p>
         <!-- <test @change="name=$event"></test> -->
         <!-- <test @input="name=$event"></test> -->
         <!-- v-model 隐藏的有一句 @input="name=$event" -->
@@ -22,13 +22,13 @@
         <!-- 这个 :name 一定和子组件里面的 update:name 保持一致 -->
         <!-- <test :name.sync="name"></test> -->
         <!-- .sync 这种简写，可以写任意多次 -->
-        <test :xxx.sync="name"></test>
+        <test :xxx.sync="name" :yyy.sync="age"></test>
     </div>
     <template id="test">
         <div>
             <!-- 这个 update 是固定的写法！ -->
-            <button @click="$emit('update:xxx', 'yyy')">按钮</button>
-            <!-- <button @click="$emit('update:yyy', 88)">按钮</button> -->
+            <button @click="$emit('update:xxx', 'elser')">按钮</button>
+            <button @click="$emit('update:yyy', 88)">按钮</button>
         </div>
     </template>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -42,7 +42,7 @@
         const vm = new Vue({
             el: '#app',
             data: {
-                name: 'zzz',
+                name: 'xxx',
                 age: 18
             }
         });
